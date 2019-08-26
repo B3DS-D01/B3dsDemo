@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="/static/dist/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+</head>
+
+<body>
+    <div id="header-content"></div>
+    {% include 'header.html' %}
+    <div class="container side">
+    <div class="jumbotron left" id="survey">
+        <div class="row justify-content-start">
+            <div class="col col-lg-9">
+                <div class=" survey-form" id="survey-form">
+                    <div class="from-group row">
+                        <label for="surveyName" class="col-sm-2 col-form-label">Survey Name</label>
+                        <div class="col-sm-10">
+                            <input id="surveyName" name="surveyName"class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="row survey-sections form-group">
+                        
+                        <div id="accordion" class="accordion acc">
+                            <div class="card" id="tab-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="">
+                            <button type="button" class="btn btn-success " onclick="openSection(this);">Add Section</button>
+                        </div>
+                    </div>
+            </div>
+        </div>    
+                    <div class="row justify-content-right float-xl-right">
+                        <div class="col float-right btn-survey-action">
+                            <div class="col-sm-6 float-right">
+                                <button type="button" class="btn btn-success" onclick="saveSurvey(this);">Finish</button>
+                            </div>
+                            <div class="col-sm-6 float-right">
+                                <button type="button" class="btn btn-danger" onclick="closeSurveyEditor(this);">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+    <div class="jumbotron right" id="survey-manage">
+        <div class="row justify-content-center">
+                <div class="table-wrapper">
+                    <div class="table-title survey">
+                        <div class="row">
+                            <div class="col-5"><h2><b>Manage Surveys / Polls</b></h2></div>
+                            <div class="col-5 text-right">
+                                    <a href="#" data-action="create_new_survey" onclick="openSurveyEditor(this);" title="Create New Survey" data-toggle="tooltip"><i class="material-icons">queue</i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="create-group-wrapper" class="card-group">
+                        <div class="card">
+                            <div id="create-group-wrapper-old">
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control " id="group-name" name="group-name" placeholder="Group Name" required>
+                                        <div class="invalid-feedback">Group name is required</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div id="m-container"class="float-container">
+                                            <select id="messenger" name="messenger" class="form-control">
+                                                <option value="-1" selected>Select Messenger</option>
+                                                <option value="Telegram">Telegram</option>
+                                                <option value="WhatsApp">WhatsApp</option>
+                                                <option value="Hike">Hike</option>
+                                            </select>
+                                            <div class="invalid-feedback">Messenger Name is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="surveys-list" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 22%;">Survey</th>
+                                <th>Total Votes</th>
+                                <th>Started On</th>
+                                <th>Ended On</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="survey-list">
+<!--                            <tr id="12" data-toggle="tooltip" data-placement="right" title="">
+                                <td>Survey 1</td>
+                                <td>23</td>
+                                <td>2019-06-01</td>
+                                <td>2019-07-01</td>
+                                <td class="survey_td">
+                                    <a href="#" data-action="resend" class="send" title="Send" data-toggle="tooltip" onclick="openSendSurvey(this);"><i class="material-icons">send</i></a>
+                                    <a href="#" data-action="report" class="report" title="Reports" data-toggle="tooltip"><i class="material-icons">insert_chart</i></a>
+                                    <a href="#" data-action="stop"  class="delete" title="Stop" data-toggle="tooltip"><i class="material-icons">stop</i></a>
+                                    <a href="#" data-action="preview"  class="view" title="Preview" data-toggle="tooltip"><i class="material-icons">visibility</i></a>
+                                </td>
+                            </tr>-->
+                            
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+<!--        this.getAttribute('+'\'data-ids\''+'), this.getAttribute('+'\'data-mid\''+')-->
+        <script id="surveyListTemplate" type="text/x-jquery-tmpl">
+            <tr data-toggle="tooltip" data-placement="right">
+                <td>${name}</td>
+                <td>${votes}</td>
+                <td>${parseDate(start_date)}</td>
+                <td>${ended_on}</td>
+                <td class="survey_td">
+<a href="#" data-action="resend" data-ids=${id} data-mid=${_id} data-sname=${name} class="send" title="Send" data-toggle="tooltip" onclick="openSendSurvey(this.getAttribute('data-ids'), this.getAttribute('data-mid'), this.getAttribute('data-sname'));" ><i class="material-icons">send</i></a>
+                    <a href="/reports" data-action="report" class="report" title="Reports" data-toggle="tooltip"><i class="material-icons">insert_chart</i></a>
+                    <a href="#" data-action="stop"  class="delete" title="Stop" data-toggle="tooltip"><i class="material-icons">stop</i></a>
+                    <a href="/preview/${id}" target="_blank" data-action="preview" data-ids=${id} class="view" title="Preview" data-toggle="tooltip"><i class="material-icons">visibility</i></a>
+                </td>
+            </tr>            
+        </script>
+
+        <script type="text/javascript" src="/static/dist/js/survey.js">
+        </script>
+            <div class="modal" id="modal-sendsurvey">
+                <div id="sendsurvey-dialog" class="modal-dialog">
+                    <div id="sendsurvey-content" class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Send Survey To Users</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                        <div class="modal-body">
+                            <input type="hidden" value="" name="survey_id" id="survey_id">
+                            <input type="hidden" value="" name="survey_name" id="survey_name_r">
+                            <input type="hidden" value="" name="survey_oid" id="survey_oid">
+                            <div class="form-group">
+                                <div class="">
+                                    <div class="input-group">
+                                        <input type="text" id="search" class="form-control autocomplete" placeholder="Search by Name">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="material-icons">&#xE8B6;</i></span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+							<div class="form-group" id="custom-message">
+								<textarea class="form-control" name="custom-message" rows="3" placeholder="Add some message"></textarea>
+							</div>
+                            <div class="form-group" id="messagebox">
+                                <div class="list-user-group">
+                                    <ul class="list-group user-list-group" id="listofusers">
+                                    </ul>
+                                </div>
+                            </div>
+                                <button id="sendsurvey" class="btn btn-primary" onclick="sendSurveyLink(this);">Send</button>
+                        </div>
+                           <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal" id="modal-section">
+                <div id="section-dialog" class="modal-dialog">
+                    <div id="section-content" class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Add New Section</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="message">Section:</label>
+                                <input type="text" name="sectionName" id="sectionName" class="form-control" placeholder="Section Name" autofocus />
+                                <div class="invalid-feedback"><span id="section-error" class="text-danger">Section Name cannot be empty</span></div>
+                            </div>
+                                <button id="add-section" class="btn btn-primary" onclick="addSection(this);">Add Section</button>
+                        </div>
+                           <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-question">
+                <div id="question-dialog" class="modal-dialog">
+                    <div id="question-content" class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Add Question to Section</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="message">Question:</label>
+                                <input type="text" name="question" id="question" class="form-control" placeholder="Question" autofocus />
+                                <div class="invalid-feedback"><span id="section-error" class="text-danger">Question cannot be empty</span></div>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="type" id="" class="form-check-input" value="single" checked />
+                                <label for="message">Single</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="type" id="" class="form-check-input" value="multi" />
+                                <label for="message">Multi Choice</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="type" id="" class="form-check-input" value="range"/>
+                                <label for="message">Range</label>
+                            </div>
+                                <button id="add-question" class="btn btn-primary" onclick="addQuestion(this);">Add Question</button>
+                        </div>
+                           <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                          </div>
+                    </div>
+                </div>
+            </div>        
+    </div>
+
+</body>
+
+</html>
