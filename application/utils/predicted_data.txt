@@ -1,0 +1,13 @@
+CLUSTER: 0 	 QUESTION: what is the size of a cricket pitch question.. the cricket which measures 22 years at 1.1 to m in length and 5 feet or 1.52 m in feet. 
+CLUSTER: 0 	 QUESTION: what is the height of the system question.. all systems are of equal size and 28 inches in height. 
+CLUSTER: 0 	 QUESTION: what is a googly question.. the leg spinner long one is called the googly. 
+CLUSTER: 2 	 QUESTION: in how many ways can a batsman be out question.. batsman can be out in 10 different ways. 
+CLUSTER: 2 	 QUESTION: which batsman hit the longest six in cricket history question.. 147 chris gayle versus south africa. 
+CLUSTER: 0 	 QUESTION: where is the 2019 cricket world cup question.. england and wales the final when we will be in london. 
+CLUSTER: 1 	 QUESTION: xtreme what is football question.. the term football describe various form of a team game is mostly in was taking the ball. 
+CLUSTER: 1 	 QUESTION: what constitutes of foul in football question.. a football would be an infect committed by a player which interface with active play. 
+CLUSTER: 1 	 QUESTION: what is penalty in football question.. in fifa football penalty kick is a unique version of the direct free kick. 
+CLUSTER: 1 	 QUESTION: how many players are there in a football team question.. two teams of 11 players are usually involved in a typical aim of regulation football. 
+CLUSTER: 1 	 QUESTION: what is preposition.. if i stands for federation international football association. 
+CLUSTER: 1 	 QUESTION: who is the best player in football question.. best player cristiano ronaldo. 
+CLUSTER: 0 	 QUESTION: define machine learning question.. machine learning is an application of artificial intelligence that provide system the ability to automatically learn and improve from experience without being explicitly program. 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to reBot</title>
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="/static/dist/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+</head>
+
+<body>
+	    {% include 'header.html' %}
+
+    <div class="container landing-container">
+        <div class="card-group justify-content-center">
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/ifarm.JPG" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" target="_blank" href="http://ec2-3-17-53-158.us-east-2.compute.amazonaws.com:55442">Ifarm Manager</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/packs.JPG" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" target="_blank" href="http://ec2-3-17-53-158.us-east-2.compute.amazonaws.com:8888">Packs Server</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/nifi.jpg" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" target="_blank" href="http://ec2-3-17-53-158.us-east-2.compute.amazonaws.com:51260/nifi">NIFI</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/neo.JPG" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" href="http://ec2-3-17-53-158.us-east-2.compute.amazonaws.com:7474" target="_blank">Neo4J</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/zepdemo.jpg" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" href="http://ec2-18-217-158-95.us-east-2.compute.amazonaws.com:9089/b3ds/">Zeppelin Demo</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/tab.jpg" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" href="https://public.tableau.com/profile/publish/HealthCare_Dashboard2/Dashboard4#!/publish-confirm" target="_blank">Tableau</a></div>
+            </div>
+
+        </div>
+        
+        
+        <div class="card-group justify-content-center">
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/rebotm.jpg" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" target="_blank" href="http://ec2-18-217-158-95.us-east-2.compute.amazonaws.com:55442/">reBot Admin Manager</a></div>
+            </div>
+            <div class="card landing-card">
+                <img class="card-img-top landing-logo" src="/static/dist/img/rebotn.jpg" alt="Card image cap">
+                <div class="card-img-overlay"></div>
+                <div class="card-footer landing-footer text-center"><a class="card-link" target="_blank" href="https://ec2-18-217-158-95.us-east-2.compute.amazonaws.com:8440/">reBot Nurse</a></div>
+            </div>
+        </div>
+
+    </div>
+<!-- Footer -->
+<footer class="page-footer font-small pt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a style="color: white;" href="https://mdbootstrap.com/education/bootstrap/"> B3 Digital Solution Pvt. Lmt.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->    
+</body>
+
+</html>
